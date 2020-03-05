@@ -23,20 +23,23 @@ Since two tasks are jointly trained, autoencoder and classifier, this is a use c
 
 After training for 94 epochs, classifier gives 80% accuracy while predicting permutation index applied to the image.
 
-### Input Images for network.
+### Results for Autoencoder without self-supervision
 These are some input images tiles which are shuffled. 
 
-Image 1                    |  Image 2
+Input Image                |  Reconstructed Image
 :-------------------------:|:-------------------------:
-![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/Jigsaw%20Task/skeleton/res/saved_test_input/input_grid_rank_6_3907.png)  |  ![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/Jigsaw%20Task/skeleton/res/saved_test_input/input_grid_rank_4_3907.png)
+![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/AE%20with%20tiles/skeleton/res/saved_test_input/input_grid_rank_13_2233.png)  |  ![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/AE%20with%20tiles/skeleton/res/saved_test_output/output_grid_rank_13_2233.png)
 
+### Results for self-supervised Autoencoder
 
-### Recontructed Images
-These are reconstructed images from Autoencoder.
-
-Image 1                    |  Image 2
+Input Image                |  Reconstructed Image
 :-------------------------:|:-------------------------:
-![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/Jigsaw%20Task/skeleton/res/saved_test_output/output_grid_rank_6_3907.png)  |  ![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/Jigsaw%20Task/skeleton/res/saved_test_output/output_grid_rank_4_3907.png)
+![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/Jigsaw%20Task/skeleton/res/saved_test_input/input_grid_rank_4_3907.png)  |  ![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/Jigsaw%20Task/skeleton/res/saved_test_output/output_grid_rank_4_3907.png)
+
+### Loss plots
+Autoencoder without self-supervision |  Self-supervised Autoencoder
+:-------------------------:|:-------------------------:
+![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/AE%20with%20tiles/skeleton/res/plots/loss.png)  |  ![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/Jigsaw%20Task/skeleton/res/plots/static_weigh/ae_loss.png)
 
 ### Evaluation
 To evaluate if auxilliary task of predicting permutation index has helped Autoencoder we take two different pretrained encoder parts of autoencoders which are basically VGG16 and fine tune them on Imagenet to compare. First we took an autoencoder which is trained on full images without any auxiliary task and another which is trained with self-supervised technique. For both, we only took the encoder weights and plug them in VGG to see how they perform relative to each other on Imagenet. 
@@ -45,7 +48,7 @@ self-supervised autoencoder accuracy|  vanilla Autoencoder accuracy
 :-------------------------:|:-------------------------:
 ![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/Imagenet/skeleton/res/plots/static_weight/metric.png)  | ![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/Imagenet/skeleton/res/plots/vanilla_ae/metric.png)
 
-### Results 
+### Conclusion 
 As it could be seen, the images regenerated from self-supervised Autoencoder are very good and it is not so easy to differentiate between actual and regenerated images. From evaluation plots, it could be noticed that self-supervision technique did help to improve autoencoder, as compared to vanilla autoencoder it has nearly double the accuracy on Imagenet. Such pretext tasks of training a network by creating labels by using some property of the data could be later used to train  
 
 Note: Here, while training on Imagenet data we only trained last FC layers of VGG while freezing all previous layers, that's why accuracy is not so great. One could also try to fine tune earlier layers with smaller learning rate to get improved accuracy. 
