@@ -24,12 +24,20 @@ Since two tasks are jointly trained, autoencoder and classifier, this is a use c
 ### Input Images for network.
 These are some input images tiles which are shuffled. 
 
+Image 1                    |  Image 2
+:-------------------------:|:-------------------------:
+![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/Jigsaw%20Task/skeleton/res/saved_test_input/input_grid_rank_6_3907.png)  |  ![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/Jigsaw%20Task/skeleton/res/saved_test_input/input_grid_rank_4_3907.png)
+
 
 ### Recontructed Images
 These are reconstructed images from Autoencoder.
 
+Image 1                    |  Image 2
+:-------------------------:|:-------------------------:
+![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/Jigsaw%20Task/skeleton/res/saved_test_output/output_grid_rank_6_3907.png)  |  ![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/Jigsaw%20Task/skeleton/res/saved_test_output/output_grid_rank_4_3907.png)
 
 ### Evaluation
+To evaluate if pretext task has helped Autoencoder we take two different pretrained encoders which is basically a VGG16 and fine tune them on Imagenet to compare them. First we took an autoencoder which is trained on just tiles without any auxiliary task and another we took the one which is trained with auxiliary task. For both, we only took the encoder weights and plug them in VGG to see how they perform relative to each other on Imagenet. 
 
 
 ### Results 
