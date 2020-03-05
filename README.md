@@ -1,5 +1,5 @@
 ## Self-Supervised Autoencoder
-This project uses the principle of self-supervision to enforce semantic awareness in the encoder which result into having better bottleneck representation. 
+This project uses the principle of self-supervision to enforce semantic awareness in the encoder which result into a better bottleneck representation. 
 
 Three Autoencoder variants are trained.
 1. Vanilla autoencoder trained using 224x224 images
@@ -23,32 +23,29 @@ Since two tasks are jointly trained, autoencoder and classifier, this is a use c
 
 After training for 94 epochs, classifier gives 80% accuracy while predicting permutation index applied to the image.
 
-### Results for Autoencoder without self-supervision
-These are some input images tiles which are shuffled. 
-
+### Results for Autoencoder without self-supervision 
 Input Image                |  Reconstructed Image
 :-------------------------:|:-------------------------:
 ![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/AE%20with%20tiles/skeleton/res/saved_test_input/input_grid_rank_13_2233.png)  |  ![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/AE%20with%20tiles/skeleton/res/saved_test_output/output_grid_rank_13_2233.png)
 
 ### Results for self-supervised Autoencoder
-
 Input Image                |  Reconstructed Image
 :-------------------------:|:-------------------------:
 ![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/Jigsaw%20Task/skeleton/res/saved_test_input/input_grid_rank_4_3907.png)  |  ![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/Jigsaw%20Task/skeleton/res/saved_test_output/output_grid_rank_4_3907.png)
 
-### Loss plots
+### Loss plots on YFCC100M data
 Autoencoder without self-supervision |  Self-supervised Autoencoder
 :-------------------------:|:-------------------------:
 ![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/AE%20with%20tiles/skeleton/res/plots/loss.png)  |  ![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/Jigsaw%20Task/skeleton/res/plots/static_weigh/ae_loss.png)
 
 ### Evaluation
-To evaluate if auxilliary task of predicting permutation index has helped Autoencoder we take two different pretrained encoder parts of autoencoders which are basically VGG16 and fine tune them on Imagenet to compare. First we took an autoencoder which is trained on full images without any auxiliary task and another which is trained with self-supervised technique. For both, we only took the encoder weights and plug them in VGG to see how they perform relative to each other on Imagenet. 
+To evaluate if auxilliary task of predicting permutation index has helped Autoencoder, encoder parts ,which are basically VGG16, after training were taken out from both autoencoder variants and fine tuned on Imagenet to compare. First we took an autoencoder which is trained on full images without any auxiliary task and another which is trained with self-supervised technique. For both, we only took the encoder weights and plug them in VGG to see how they perform relative to each other on Imagenet. 
 
 self-supervised autoencoder accuracy|  vanilla Autoencoder accuracy
 :-------------------------:|:-------------------------:
 ![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/Imagenet/skeleton/res/plots/static_weight/metric.png)  | ![](https://github.com/SharadGitHub/Self-Supervised-Autoencoder/blob/master/Imagenet/skeleton/res/plots/vanilla_ae/metric.png)
 
 ### Conclusion 
-As it could be seen, the images regenerated from self-supervised Autoencoder are very good and it is not so easy to differentiate between actual and regenerated images. From evaluation plots, it could be noticed that self-supervision technique did help to improve autoencoder, as compared to vanilla autoencoder it has nearly double the accuracy on Imagenet. Such pretext tasks of training a network by creating labels by using some property of the data could be later used to train  
+As it could be seen, the images regenerated from self-supervised Autoencoder are relatively better than the one without self-supervision and it is also not so easy to differentiate between actual and regenerated images. Further, from evaluation plots, it could be noticed that self-supervision technique did help to improve autoencoder, as compared to vanilla autoencoder it has nearly double the accuracy on Imagenet. Loss plots on YFCC100M data show that training is much smoother after auxiliary task was added and it kind of enforced the Autoencoder to capture more semantic information from the data as classifier needs that semantic information to predict the permutation index. Such pretext tasks could be used to learn data representation in self-supervised fashion when external labels are not available and this new knowledge later, could be transferred to other datasets.
 
-Note: Here, while training on Imagenet data we only trained last FC layers of VGG while freezing all previous layers, that's why accuracy is not so great. One could also try to fine tune earlier layers with smaller learning rate to get improved accuracy. 
+Note: Here, while training on Imagenet data we only trained last FC layers of VGG and freezing all previous layers, that's why accuracy is not so great. One could also try to fine tune earlier layers with smaller learning rate to get improved accuracy. 
