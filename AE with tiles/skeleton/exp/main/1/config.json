@@ -1,0 +1,28 @@
+{
+  "batch_size": 32,
+  "bn_correct": true,
+  "bn_momentum": 0.1,
+  "datadir": "/ds2/YFCC100m/image_packs",
+  "finetune": [
+    null
+  ],
+  "first_rank": null,
+  "init_method": null,
+  "lr": 0.001,
+  "nsamples": 100000,
+  "num_epochs": 2,
+  "num_workers": 1,
+  "outdir": "/netscratch/kakran/AE_with_tiles/skeleton/src/../exp/logs_and_snapshot",
+  "outdir_prefix": null,
+  "rank": 0,
+  "ranks": 2,
+  "resume": null,
+  "seed": 391454171,
+  "size": [
+    96
+  ],
+  "val_batch_size": 125,
+  "warmup": 5,
+  "wd": 0.0001,
+  "world_size": 2
+}

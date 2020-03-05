@@ -1,0 +1,20 @@
+{
+  "batch_size": 64,
+  "data_dir": "/netscratch/folz/ILSVRC12_opt/",
+  "device": "cuda:0",
+  "epochs": 90,
+  "experiment": "baseline",
+  "experiment_variant": "baseline",
+  "first_rank": null,
+  "init_method": null,
+  "lr": 0.01,
+  "momentum": 0.9,
+  "out_dir": "/netscratch/kakran/train_Imagenet/skeleton/src/../exp/logs_and_snapshot",
+  "out_suffix": null,
+  "rank": 0,
+  "ranks": 3,
+  "seed": 375102424,
+  "val_batch_size": 64,
+  "wd": 0.0001,
+  "world_size": 3
+}

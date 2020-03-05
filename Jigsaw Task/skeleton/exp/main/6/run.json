@@ -1,0 +1,125 @@
+{
+  "artifacts": [],
+  "command": "main",
+  "experiment": {
+    "base_dir": "/netscratch/kakran/Jigsaw/skeleton/src",
+    "dependencies": [
+      "crumpets-torch==3.0.0a5+cuda102",
+      "datadings==3.0.0a2",
+      "numpy==1.17.3",
+      "sacred==0.8.1",
+      "simplejpeg==1.3.1",
+      "torch==1.4.0a0+649135b"
+    ],
+    "mainfile": "main.py",
+    "name": " Experiment: Jigsaw",
+    "repositories": [],
+    "sources": [
+      [
+        "distributed.py",
+        "_sources/distributed_80606c5730ec1f50f0306b5cb5ca9903.py"
+      ],
+      [
+        "main.py",
+        "_sources/main_11c374078e384c404c66520161de1a98.py"
+      ],
+      [
+        "readers.py",
+        "_sources/readers_f0da9f52ac00dd2011d28dbc0679b0ce.py"
+      ],
+      [
+        "segnet.py",
+        "_sources/segnet_8a9f8a8915b6acb6d6a773258ca398a9.py"
+      ],
+      [
+        "trainer.py",
+        "_sources/trainer_4f62043a3ca204e468d41d715cdbf906.py"
+      ],
+      [
+        "worker.py",
+        "_sources/worker_bb625b4132fa870cad581785e736f72c.py"
+      ]
+    ]
+  },
+  "fail_trace": [
+    "Traceback (most recent call last):\n",
+    "  File \"/opt/conda/lib/python3.6/contextlib.py\", line 88, in __exit__\n    next(self.gen)\n",
+    "  File \"/opt/conda/lib/python3.6/site-packages/sacred/stdout_capturing.py\", line 175, in tee_output_fd\n    tee_stdout.wait(timeout=1)\n",
+    "  File \"/opt/conda/lib/python3.6/subprocess.py\", line 1469, in wait\n    raise TimeoutExpired(self.args, timeout)\n",
+    "subprocess.TimeoutExpired: Command '['tee', '-a', '/tmp/tmp2qurn49k']' timed out after 1 seconds\n"
+  ],
+  "heartbeat": "2020-02-07T02:54:43.798963",
+  "host": {
+    "ENV": {},
+    "cpu": "Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz",
+    "gpus": {
+      "driver_version": "418.116.00",
+      "gpus": [
+        {
+          "model": "Tesla V100-SXM3-32GB",
+          "persistence_mode": true,
+          "total_memory": 32480
+        },
+        {
+          "model": "Tesla V100-SXM3-32GB",
+          "persistence_mode": true,
+          "total_memory": 32480
+        },
+        {
+          "model": "Tesla V100-SXM3-32GB",
+          "persistence_mode": true,
+          "total_memory": 32480
+        },
+        {
+          "model": "Tesla V100-SXM3-32GB",
+          "persistence_mode": true,
+          "total_memory": 32480
+        },
+        {
+          "model": "Tesla V100-SXM3-32GB",
+          "persistence_mode": true,
+          "total_memory": 32480
+        }
+      ]
+    },
+    "hostname": "eb74762a69b7",
+    "os": [
+      "Linux",
+      "Linux-4.15.0-72-generic-x86_64-with-debian-buster-sid"
+    ],
+    "python_version": "3.6.9"
+  },
+  "meta": {
+    "command": "main",
+    "options": {
+      "--beat-interval": null,
+      "--capture": null,
+      "--comment": null,
+      "--debug": false,
+      "--enforce_clean": false,
+      "--file_storage": null,
+      "--force": false,
+      "--help": false,
+      "--loglevel": null,
+      "--mongo_db": null,
+      "--name": null,
+      "--pdb": false,
+      "--print-config": false,
+      "--priority": null,
+      "--queue": false,
+      "--s3": null,
+      "--sql": null,
+      "--tiny_db": null,
+      "--unobserved": false,
+      "COMMAND": null,
+      "UPDATE": [],
+      "help": false,
+      "with": false
+    }
+  },
+  "resources": [],
+  "result": null,
+  "start_time": "2020-02-04T02:03:43.151127",
+  "status": "FAILED",
+  "stop_time": "2020-02-07T02:54:43.809971"
+}

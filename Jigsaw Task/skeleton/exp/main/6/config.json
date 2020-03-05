@@ -1,0 +1,21 @@
+{
+  "batch_size": 64,
+  "bn_correct": true,
+  "bn_momentum": 0.1,
+  "datadir": "/ds2/YFCC100m/image_packs",
+  "dataset_size": 94502424,
+  "first_rank": null,
+  "init_method": null,
+  "lr": 0.01,
+  "nsamples": 1000000,
+  "num_epochs": 18,
+  "num_workers": 4,
+  "outdir": "/netscratch/kakran/Jigsaw/skeleton/src/../exp/logs_and_snapshot",
+  "rank": 0,
+  "ranks": 5,
+  "seed": 467774774,
+  "size": 96,
+  "warmup": 5,
+  "wd": 0.0001,
+  "world_size": 5
+}
